@@ -13,6 +13,12 @@ export default function Transactions() {
       .catch((e) => console.log('catch', e))
   }, [API]);
 
+  const getTotal = (transactions) => {
+    return transactions
+      .map((transaction) => transaction.amount)
+      .reduce((prev, cur) => prev + cur, 0)
+  }
+
   return (
     <div className="Transactions">
       <section>
@@ -20,13 +26,12 @@ export default function Transactions() {
           <thead>
             <tr>
               <th></th>
-              <th>Take me there</th>
-              <th>See this Transaction</th>
+              <h2>Bank Account Total: ${getTotal(transactions)}</h2>
             </tr>
           </thead>
           <tbody>
             {transactions.map((transaction, index) => {
-              return <Transaction key={index} transaction={Transaction} index={index} />;
+              return <Transaction key={index} index={index} transaction={transaction} />;
             })}
           </tbody>
         </table>

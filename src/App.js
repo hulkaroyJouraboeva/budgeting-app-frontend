@@ -1,5 +1,7 @@
 // control space, fn + f12, @ in cmd p, cmd +  k + z === zen mode
 // use git version control to do and undo commits (click on the three dots)
+// cmd + B for toggling the sidebar, cmd + k + s for the shortcuts cheatsheet
+// mv for moving files around in CLI, and rm to delete files
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Edit from "./Pages/Edit";
 import FourOFour from "./Pages/FourOFour";
