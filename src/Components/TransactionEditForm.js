@@ -11,15 +11,10 @@ export default function TransactionEditForm() {
     date: '',
     amount: 0,
     source: '',
-    isFavorite: false,
   });
 
   const handleTextChange = (event) => {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
-  };
-
-  const handleCheckboxChange = () => {
-    setTransaction({ ...transaction, isFavorite: !transaction.isFavorite });
   };
 
   useEffect(() => { 
@@ -46,13 +41,6 @@ export default function TransactionEditForm() {
           placeholder="educational, inspirational, ..."
           onChange={handleTextChange}
         />
-        <label htmlFor="isFavorite">Favorite:</label>
-        <input
-          id="isFavorite"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={transaction.isFavorite}
-        />
         <label htmlFor="source">source:</label>
         <textarea
           id="source"
@@ -71,7 +59,6 @@ export default function TransactionEditForm() {
           onChange={handleTextChange}
         />
         <br />
-        {/* <input type="submit" /> */}
       </form>
 
       <Link to={`/transactions/${index}`}>

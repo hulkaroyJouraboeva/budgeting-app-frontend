@@ -9,7 +9,6 @@ export default function TransactionNewForm() {
     date: '',
     amount: '',
     source: "",
-    isFavorite: false,
   });
 
   const handleTextChange = (event) => {
@@ -37,13 +36,6 @@ export default function TransactionNewForm() {
           value={transaction.date}
           placeholder="01/30/2022"
           onChange={handleTextChange}
-        />
-        <label htmlFor="isFavorite">Favorite:</label>
-        <input
-          id="isFavorite"
-          type="checkbox"
-          onChange={handleCheckboxChange}
-          checked={transaction.isFavorite}
         />
         <label htmlFor="source">source:</label>
         <textarea
