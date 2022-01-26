@@ -25,8 +25,9 @@ export default function Transactions() {
         <table>
           <thead>
             <tr>
-              <th></th>
-              <h2>Bank Account Total: ${getTotal(transactions)}</h2>
+              <th>
+                <h2>Bank Account Total: ${getTotal(transactions)}</h2>
+              </th>
             </tr>
           </thead>
           <tbody>
