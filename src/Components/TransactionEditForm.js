@@ -8,9 +8,8 @@ export default function TransactionEditForm() {
   const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState({
-    name: "",
-    url: "",
     date: null,
+    amount: 0,
     source: "",
     isFavorite: false,
   });
@@ -38,23 +37,6 @@ export default function TransactionEditForm() {
   return (
     <div className="Edit">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          value={transaction.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of Website"
-          required
-        />
-        <label htmlFor="url">URL:</label>
-        <input
-          id="url"
-          type="text"
-          required
-          value={transaction.url}
-          onChange={handleTextChange}
-        />
         <label htmlFor="date">date:</label>
         <input
           id="date"
@@ -78,6 +60,15 @@ export default function TransactionEditForm() {
           value={transaction.source}
           onChange={handleTextChange}
           placeholder="Describe why you transactioned this site"
+        />
+        <label htmlFor="amount">amount:</label>
+        <input
+          id="amount"
+          type="number"
+          name="amount"
+          value={transaction.amount}
+          placeholder="type in the amount ..."
+          onChange={handleTextChange}
         />
         <br />
 

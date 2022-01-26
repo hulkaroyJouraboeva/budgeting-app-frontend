@@ -6,9 +6,8 @@ export default function TransactionNewForm() {
   const API = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
   const [transaction, setTransaction] = useState({
-    name: "",
-    url: "",
-    date: null,
+    date: '',
+    amount: '',
     source: "",
     isFavorite: false,
   });
@@ -30,25 +29,6 @@ export default function TransactionNewForm() {
   return (
     <div className="New">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          id="name"
-          value={transaction.name}
-          type="text"
-          onChange={handleTextChange}
-          placeholder="Name of Website"
-          required
-        />
-        <label htmlFor="url">URL:</label>
-        <input
-          id="url"
-          type="text"
-          pattern="http[s]*://.+"
-          required
-          value={transaction.url}
-          placeholder="http://"
-          onChange={handleTextChange}
-        />
         <label htmlFor="date">date:</label>
         <input
           id="date"
@@ -72,6 +52,15 @@ export default function TransactionNewForm() {
           value={transaction.source}
           onChange={handleTextChange}
           placeholder="Describe why you transactioned this site"
+        />
+        <label htmlFor="amount">amount:</label>
+        <input
+          id="amount"
+          type="number"
+          name="amount"
+          value={transaction.amount}
+          placeholder="type in the amount ..."
+          onChange={handleTextChange}
         />
         <br />
         <input type="submit" />
