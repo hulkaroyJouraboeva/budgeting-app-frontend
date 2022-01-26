@@ -6,12 +6,22 @@ export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
   const API = process.env.REACT_APP_API_URL;
 
+  // useEffect(() => {
+  //   axios
+  //     .get(`${API}/transactions`)
+  //     .then((response) => { setTransactions(response.data) })
+  //     .catch((e) => console.log('catch', e))
+  // }, [API]);
+
   useEffect(() => {
-    axios
-      .get(`${API}/transactions`)
-      .then((response) => { setTransactions(response.data) })
-      .catch((e) => console.log('catch', e))
-  }, [API]);
+    const fetchData = async () => {
+      const response = await axios.get(`${API}/transactions`);
+      setTransactions(response.data);
+    };
+    fetchData();
+  }, []);
+
+  console.log(transactions)
 
   const getTotal = (transactions) => {
     return transactions
