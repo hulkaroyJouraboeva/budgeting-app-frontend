@@ -1,5 +1,6 @@
 {
   "name": "budgeting-app-frontend",
+  "proxy": "https://sheltered-gorge-69495.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
