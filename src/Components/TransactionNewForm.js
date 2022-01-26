@@ -15,10 +15,6 @@ export default function TransactionNewForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
-  const handleCheckboxChange = () => {
-    setTransaction({ ...transaction, isFavorite: !transaction.isFavorite });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
