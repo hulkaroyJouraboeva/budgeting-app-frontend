@@ -8,9 +8,9 @@ export default function TransactionEditForm() {
   const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState({
-    date: null,
+    date: '',
     amount: 0,
-    source: "",
+    source: '',
     isFavorite: false,
   });
 
@@ -71,9 +71,9 @@ export default function TransactionEditForm() {
           onChange={handleTextChange}
         />
         <br />
-
-        <input type="submit" />
+        {/* <input type="submit" /> */}
       </form>
+
       <Link to={`/transactions/${index}`}>
         <button>Never mind!</button>
       </Link>
