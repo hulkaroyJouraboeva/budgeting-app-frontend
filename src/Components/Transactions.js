@@ -16,12 +16,16 @@ export default function Transactions() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(`${API}/transactions`);
+      console.log(response)
+      console.log(response.data)
+      console.log('hitting useEffect')
       setTransactions(response.data);
     };
     fetchData();
   }, []);
 
-  console.log(transactions)
+  console.log(API);
+  console.log(transactions);
 
   const getTotal = (transactions) => {
     return transactions
