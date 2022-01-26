@@ -35,7 +35,7 @@ export default function TransactionNewForm() {
           type="text"
           name="date"
           value={transaction.date}
-          placeholder="educational, inspirational, ..."
+          placeholder="01/30/2022"
           onChange={handleTextChange}
         />
         <label htmlFor="isFavorite">Favorite:</label>
@@ -51,7 +51,7 @@ export default function TransactionNewForm() {
           name="source"
           value={transaction.source}
           onChange={handleTextChange}
-          placeholder="Describe why you transactioned this site"
+          placeholder="What is the source of this transaction?"
         />
         <label htmlFor="amount">amount:</label>
         <input
