@@ -14,6 +14,7 @@ export default function Transactions() {
   // }, [API]);
 
   useEffect(() => {
+    console.log('useEffect is running!');
     const fetchData = async () => {
       const response = await axios.get(`${API}/transactions`);
       console.log(response)
