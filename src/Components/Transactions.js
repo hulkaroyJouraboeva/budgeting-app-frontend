@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function Transactions() {
   const [transactions, setTransactions] = useState([]);
-  const API = process.env.REACT_APP_API_URL;
+  const API ='http://sheltered-gorge-69495.herokuapp.com';
 
   // useEffect(() => {
   //   axios
