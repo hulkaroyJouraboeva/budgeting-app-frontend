@@ -16,6 +16,8 @@ export default function Transactions() {
   useEffect(() => {
     console.log('useEffect is running!');
     console.log(API);
+    console.log(transactions);
+
     const fetchData = async () => {
       const response = await axios.get(`${API}/transactions`);
       console.log(response)
@@ -24,10 +26,7 @@ export default function Transactions() {
       setTransactions(response.data);
     };
     fetchData();
-  }, [API]);
-
-  console.log(API);
-  console.log(transactions);
+  }, [API, transactions]);
 
   const getTotal = (transactions) => {
     return transactions
