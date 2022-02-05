@@ -19,6 +19,15 @@ export default function Transactions() {
       .reduce((prev, cur) => prev + cur, 0)
   }
 
+  const conditionalBalance = () => {
+    if (getTotal(transactions) < 0) {
+      return <p style={{ color: "red" }}>${getTotal(transactions)}</p>;
+    }
+    if (getTotal(transactions) > 0) {
+      return <p style={{ color: "green" }}>${getTotal(transactions)}</p>;
+    }
+  };
+
   return (
     <div className="Transactions">
       <section>
@@ -26,7 +35,7 @@ export default function Transactions() {
           <thead>
             <tr>
               <th>
-                <h2>Bank Account Total: ${getTotal(transactions)}</h2>
+                <h2>Bank Account Total: {conditionalBalance()}</h2>
               </th>
             </tr>
           </thead>
