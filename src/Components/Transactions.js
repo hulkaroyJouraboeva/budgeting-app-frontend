@@ -11,19 +11,11 @@ export default function Transactions() {
       .get(`${API}/transactions`)
       .then((response) => { setTransactions(response.data) })
       .catch((e) => console.log('catch', e))
-  }, [API]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await axios.get(`${API}/transactions`);
-  //     setTransactions(response.data);
-  //   };
-  //   fetchData();
-  // }, [API]);
+  }, [API, transactions]);
 
   const getTotal = (transactions) => {
     return transactions
-      .map((transaction) => transaction.amount)
+      .map((transaction) => Number(transaction.amount))
       .reduce((prev, cur) => prev + cur, 0)
   }
 
@@ -40,7 +32,7 @@ export default function Transactions() {
           </thead>
           <tbody>
             {transactions.map((transaction, index) => {
-              return <Transaction key={index} index={index} transaction={transaction} />;
+              return <Transaction key={index} index={index} transaction={transaction} setTransactions={setTransactions} transactions={transactions}/>;
             })}
           </tbody>
         </table>

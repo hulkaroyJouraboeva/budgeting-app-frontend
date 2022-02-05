@@ -1,16 +1,16 @@
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function Transaction({ transaction, index }) {
+export default function Transaction({ transaction, index, setTransactions, transactions }) {
   const API = process.env.REACT_APP_API_URL;
-  const navigate = useNavigate();
 
   const handleDelete = (event) => {
-    axios
-      .delete(`${API}/transactions/${index}`)
-      .then(() => navigate('/transactions'))
+    console.log('inside handleDelete')
+    axios.delete(`${API}/transactions/${index}`)
+      .then(() => {
+        setTransactions(transactions);
+      })
   };
-  // Deleting from Index is currently not functional for some reason :/
 
   return (
     <tr>

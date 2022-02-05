@@ -27,7 +27,9 @@ export default function TransactionEditForm() {
     event.preventDefault();
     axios
       .put(`${API}/transactions/${index}`, transaction)
-      .then(() => navigate(`/transactions/${index}`));
+      .then(() => { 
+        navigate(`/transactions`);
+      });
   };
   return (
     <div className="Edit">
@@ -59,6 +61,7 @@ export default function TransactionEditForm() {
           onChange={handleTextChange}
         />
         <br />
+        <input type="submit" />
       </form>
 
       <Link to={`/transactions/${index}`}>
